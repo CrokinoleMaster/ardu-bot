@@ -1,5 +1,7 @@
 var five = require('johnny-five');
-var board = new five.Board();
+var board = new five.Board({
+  port: '/dev/cu.RRRRRRBOT-DevB'
+});
 var keypress = require('keypress');
 var _ = require('lodash-compat');
 var temporal = require('temporal');
@@ -48,20 +50,21 @@ board.on('ready', function() {
 
     if (!key) return;
 
-    // if (key.name == 'q') {
-    //   console.log('quit');
-    //   process.exit();
-    // } else if (key.name == 'down') {
-    //   moveBack();
-    // } else if (key.name == 'up') {
-    //   moveForward();
-    // } else if (key.name == 'left') {
-    //   turnLeft();
-    // } else if (key.name == 'right') {
-    //   turnRight();
-    // } else if (key.name == 'space') {
-    //   stopMove();
-    // }
+    if (key.name == 'q') {
+      console.log('quit');
+      stopMove();
+      process.exit();
+    } else if (key.name == 'down') {
+      moveBack();
+    } else if (key.name == 'up') {
+      moveForward();
+    } else if (key.name == 'left') {
+      turnLeft();
+    } else if (key.name == 'right') {
+      turnRight();
+    } else if (key.name == 'space') {
+      stopMove();
+    }
 
   });
 
@@ -83,13 +86,17 @@ board.on('ready', function() {
   var lastTurn = '';
   var safeAngleMax = 120;
   var safeAngleMin = 60;
-  var safeDist = 25;
+  var safeDist = 8;
+  var manual = true;
 
   var loop = function() {
     console.log('loop')
     var angle = 30;
     var dir = 1;
     temporal.loop(200, function() {
+      if (manual) {
+        this.stop();
+      }
       sonar_servo.to(angle);
       var cm = sonar.cm;
       if (cm < safeDist && angle <= safeAngleMax && angle >= safeAngleMin) {
@@ -134,13 +141,21 @@ board.on('ready', function() {
       }
     });
   }
-  loop();
 
+  var manual = function() {
+    manual = true;
+  }
+  var auto = function() {
+    manual = false;
+    loop();
+  }
 
   this.repl.inject({
     lcd : lcd,
     sonar: sonar,
-    sonarServo: sonar_servo
+    sonarServo: sonar_servo,
+    manual: manual,
+    auto: auto
   })
 
 });

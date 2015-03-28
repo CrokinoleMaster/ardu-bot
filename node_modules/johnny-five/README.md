@@ -4,7 +4,7 @@
 
     Please don't edit this file!
 
-    If you'd like to make changes to the readme contents, please make them in the tpl/.readme.md file. If you'd like to add an example, please put the fil in eg/ and then add an entry to programs.json. To generate the markdown and update the main readme, run: 
+    If you'd like to make changes to the readme contents, please make them in the tpl/.readme.md file. If you'd like to add an example, please put the file in eg/ and then add an entry to programs.json. To generate the markdown and update the main readme, run: 
 
     `grunt examples`
 
@@ -67,12 +67,6 @@ Johnny-Five does not attempt to provide "all the things", but instead focuses on
 
 ...And that's only a few of the many explorable possibilities. Check out these exciting projects: [node-pulsesensor](https://www.npmjs.org/package/node-pulsesensor), [footballbot-workshop-ui](https://www.npmjs.org/package/footballbot-workshop-ui), [nodebotui](https://www.npmjs.org/package/nodebotui), [dublin-disco](https://www.npmjs.org/package/dublin-disco), [node-slot-car-bot](https://www.npmjs.org/package/node-slot-car-bot), [servo-calibrator](https://www.npmjs.org/package/servo-calibrator), [node-ardx](https://www.npmjs.org/package/node-ardx), [nodebot-workshop](https://www.npmjs.org/package/nodebot-workshop), [phone-home](https://www.npmjs.org/package/phone-home), [purple-unicorn](https://www.npmjs.org/package/purple-unicorn), [webduino](https://www.npmjs.org/package/webduino), [leapduino](https://www.npmjs.org/package/leapduino), [lasercat-workshop](https://www.npmjs.org/package/lasercat-workshop), [simplesense](https://www.npmjs.org/package/simplesense), [five-redbot](https://www.npmjs.org/package/five-redbot), [robotnik](https://www.npmjs.org/package/robotnik), [the-blender](https://www.npmjs.org/package/the-blender)
 
-## Supported Hardware
-
-Johnny-Five has been tested on a variety of Arduino-compatible [Boards](https://github.com/rwaldron/johnny-five/wiki/Board).
-
-For non-Arduino based projects, a number of platform-specific [IO Plugins](https://github.com/rwaldron/johnny-five/wiki/IO-Plugins) are available. IO Plugins allow Johnny-Five code to communicate with any non-Arduino based hardware in whatever language that platforms speaks!
-
 
 #### Why JavaScript? [NodeBots: The Rise of JavaScript Robotics](http://www.voodootikigod.com/nodebots-the-rise-of-js-robotics)
 
@@ -81,8 +75,7 @@ For non-Arduino based projects, a number of platform-specific [IO Plugins](https
 
 Johnny-Five has been tested on a variety of Arduino-compatible [Boards](https://github.com/rwaldron/johnny-five/wiki/Board).
 
-For non-Arduino based projects, platform-specific [IO Plugins](https://github.com/rwaldron/johnny-five/wiki/IO-Plugins#available-io-plugins) are available. IO Plugins allow Johnny-Five code to communicate with any hardware in whatever language that platforms speaks! 
-
+For non-Arduino based projects, a number of platform-specific [IO Plugins](https://github.com/rwaldron/johnny-five/wiki/IO-Plugins) are available. IO Plugins allow Johnny-Five code to communicate with any non-Arduino based hardware in whatever language that platforms speaks!
 
 ## Documentation
 
@@ -170,7 +163,6 @@ board.on("ready", function() {
 
 ### Board
 - [Basic Board initialization](https://github.com/rwaldron/johnny-five/blob/master/docs/board.md)
-- [Board example with user defined serial port](https://github.com/rwaldron/johnny-five/blob/master/docs/board-with-port.md)
 - [Multiple Boards in one program](https://github.com/rwaldron/johnny-five/blob/master/docs/board-multi.md)
 - [REPL](https://github.com/rwaldron/johnny-five/blob/master/docs/repl.md)
 - [Pin Component](https://github.com/rwaldron/johnny-five/blob/master/docs/pin.md)
@@ -178,14 +170,13 @@ board.on("ready", function() {
 ### LED
 - [LED Component](https://github.com/rwaldron/johnny-five/blob/master/docs/led.md)
 - [LED (PCA9685)](https://github.com/rwaldron/johnny-five/blob/master/docs/led-PCA9685.md)
-- [LED (Common Anode)](https://github.com/rwaldron/johnny-five/blob/master/docs/led-anode.md)
 - [LED - Blink](https://github.com/rwaldron/johnny-five/blob/master/docs/led-blink.md)
 - [LED - Pulse](https://github.com/rwaldron/johnny-five/blob/master/docs/led-pulse.md)
 - [LED - Fade](https://github.com/rwaldron/johnny-five/blob/master/docs/led-fade.md)
 - [LED - Fade Callback](https://github.com/rwaldron/johnny-five/blob/master/docs/led-fade-callback.md)
 - [LED - An Array of LEDs](https://github.com/rwaldron/johnny-five/blob/master/docs/led-array.md)
 - [LED RGB Component](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb.md)
-- [LED - RGB, anode](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-anode.md)
+- [LED - RGB (Common Anode)](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-anode.md)
 - [LED - RGB (PCA9685)](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rgb-PCA9685.md)
 - [LED - Rainbow](https://github.com/rwaldron/johnny-five/blob/master/docs/led-rainbow.md)
 - [LED - Demo Sequence](https://github.com/rwaldron/johnny-five/blob/master/docs/led-demo-sequence.md)
@@ -246,6 +237,7 @@ board.on("ready", function() {
 ### Shift Register
 - [Shift Register Component](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register.md)
 - [Shift Register - Seven Segment Controller](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-seven-segment.md)
+- [Shift Register - Seven Segments, Daisy Chained](https://github.com/rwaldron/johnny-five/blob/master/docs/shift-register-daisy-chain.md)
 
 ### Infrared (Proximity, Motion, Reflectance)
 - [IR Motion Component](https://github.com/rwaldron/johnny-five/blob/master/docs/ir-motion.md)

@@ -5,7 +5,7 @@ var IS_TEST_MODE = global.IS_TEST_MODE || false;
 var Emitter = require("events").EventEmitter;
 var util = require("util");
 // var os = require("os");
-var colors = require("colors");
+var chalk = require("chalk");
 var _ = require("lodash");
 var __ = require("../lib/fn.js");
 var Repl = require("../lib/repl.js");
@@ -119,7 +119,7 @@ var Serial = {
 
       this.info(
         "Device(s)",
-        ports.toString().grey
+        chalk.grey(ports)
       );
 
       // Get the first available device path from the list of
@@ -364,7 +364,7 @@ function broadcast(err, type, io) {
 
     this.info(
       "Connected",
-      this.port.grey
+      chalk.grey(this.port)
     );
 
     // 10 Second timeout...
@@ -376,8 +376,9 @@ function broadcast(err, type, io) {
 
       this.error(
         "Device or Firmware Error",
-        "A timeout occurred while connecting to the Board. \n" +
-        "Please check that you've properly flashed the board with the correct firmware."
+        "A timeout occurred while connecting to the Board. \n\n" +
+        "Please check that you've properly flashed the board with the correct firmware.\n" +
+        "See: https://github.com/rwaldron/johnny-five/wiki/Getting-Started#trouble-shooting"
       );
 
       this.emit("error", new Error("A timeout occurred while connecting to the Board."));
@@ -531,21 +532,21 @@ Board.prototype.shiftOut = function(dataPin, clockPin, isBigEndian, value) {
   }
 };
 
-Board.prototype.log = function( /* type, module, message [, long description] */ ) {
+Board.prototype.log = function( /* type, klass, message [, long description] */ ) {
   var args = [].slice.call(arguments),
     type = args.shift(),
-    module = args.shift(),
+    klass = args.shift(),
     message = args.shift(),
     color = Board.prototype.log.types[type];
 
   if (this.debug) {
     console.log([
       // Timestamp
-      String(+new Date()).grey,
+      chalk.grey(Date.now()),
       // Module, color matches type of log
-      module.magenta,
+      chalk.magenta(klass),
       // Message
-      message[color],
+      chalk[color](message),
       // Miscellaneous args
       args.join(", ")
     ].join(" "));
@@ -554,7 +555,7 @@ Board.prototype.log = function( /* type, module, message [, long description] */
 
 Board.prototype.log.types = {
   error: "red",
-  fail: "orange",
+  fail: "inverse",
   warn: "yellow",
   info: "cyan"
 };

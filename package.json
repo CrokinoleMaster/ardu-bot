@@ -1,0 +1,27 @@
+{
+  "name": "ardu-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "dependencies": {
+    "johnny-five": "^0.8.47",
+    "keypress": "^0.2.1",
+    "lodash-compat": "^3.5.0",
+    "serialport": "^1.6.3",
+    "temporal": "^0.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huaruiwu/ardu-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huaruiwu/ardu-bot/issues"
+  },
+  "homepage": "https://github.com/huaruiwu/ardu-bot"
+}
