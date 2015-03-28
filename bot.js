@@ -7,6 +7,9 @@ var temporal = require('temporal');
 keypress(process.stdin);
 
 board.on('ready', function() {
+  var reset = new five.Pin(4);
+  reset.high();
+
   var left_wheel = new five.Servo.Continuous(3);
   var right_wheel = new five.Servo.Continuous(5);
   var sonar_servo = new five.Servo({
@@ -86,7 +89,7 @@ board.on('ready', function() {
     console.log('loop')
     var angle = 30;
     var dir = 1;
-    temporal.loop(100, function() {
+    temporal.loop(200, function() {
       sonar_servo.to(angle);
       var cm = sonar.cm;
       if (cm < safeDist && angle <= safeAngleMax && angle >= safeAngleMin) {
@@ -132,7 +135,6 @@ board.on('ready', function() {
     });
   }
   loop();
-
 
 
   this.repl.inject({
